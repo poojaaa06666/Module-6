@@ -1,61 +1,51 @@
-# # 🐍 Python OOP: Polymorphism with Classes
+# 🐍 Python OOP: Operator Overloading (Less Than `<`)
 
 ## 🎯 AIM
 
-To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
+To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `Beans`**:
-   - Define `type()` method that prints `"Vegetable"`.
-   - Define `color()` method that prints `"Green"`.
+1. **Create Class `A`**:
+   - Define the `__init__()` method to initialize the object with a value `a`.
 
-2. **Create Class `Mango`**:
-   - Define `type()` method that prints `"Fruit"`.
-   - Define `color()` method that prints `"Yellow"`.
+2. **Overload the `<` Operator**:
+   - Define the `__lt__()` method with logic:
+     - If `self.a < o.a`, return `"ob1 is less than ob2"`
+     - Else, return `"ob2 is less than ob1"`
 
-3. **Define Generic Function `func(obj)`**:
-   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
+3. **Create Objects**:
+   - Instantiate two objects `ob1` and `ob2` with values.
 
-4. **Create Objects**:
-   - Instantiate `Beans` and `Mango`.
-   - Pass them to `func()` and execute the program.
+4. **Use `<` Operator**:
+   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
 
 ---
 
 ## 💻 Program
 ```
-  class Beans ():
-     def type(self):
-        print("Vegetable")
-     def color(self):
-        print("Green")
+class A:
+    def __init__(self,a):
+        self.a=a
+    def __lt__(self,other):
+        return self.a<other.a
+ob1 = A(2)
 
-  class Mango ():
-     def type(self):
-        print("Fruit")
-     def color(self):
-        print("Yellow")
-
-     def func(obj):
-        obj.type()
-        obj.color()
-
-  obj_beans = Beans()
-  obj_mango = Mango()
-  func(obj_beans)
-  func(obj_mango)
+ob2 = A(3)
+if ob2<ob1:
+    print("ob2 is less than ob1")
+else:
+    print("ob1 is less than ob2")
 ```
 
 ## Output
 
-![image](https://github.com/user-attachments/assets/d5032705-85d6-4c35-8aed-217bdf7d1854)
+![image](https://github.com/user-attachments/assets/1ea571a1-2a46-4d5f-97c0-8f65fb02f595)
 
 
 ## Result
 
-Thus the program To create two specific classes — Beans and Mango. Then, create a generic function that can accept any object and determine its type (Fruit or Vegetable) and color, using polymorphism is executed successfully.
-
+Thus the program that demonstrates operator overloading by overloading the less than (<) operator using a custom class is executed successfully.
 
